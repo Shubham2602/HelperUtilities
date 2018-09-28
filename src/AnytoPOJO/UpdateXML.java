@@ -1,6 +1,8 @@
 package AnytoPOJO;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -17,7 +19,7 @@ import DateTimeRelated.DateChanger;
 
 public class UpdateXML 
 {
-	public void convert(String filepath)
+	public void convert(String filepath, List<String> listOfNodesToBeChanged)
 	{
 
 	        try {
@@ -28,13 +30,29 @@ public class UpdateXML
 	    		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 	    		Document doc = docBuilder.parse(filepath);
 
+	    		NodeList list = doc.getChildNodes();
+	    		List<Node> nodelist = (List<Node>) list;
+	    		
+	    		for(Node n : nodelist)
+	    		{
+	    			System.out.println(n.getNodeName());
+	    		}
+	    		
+	    		System.out.println();
+	    		
+	    		for(String s : listOfNodesToBeChanged)
+	    		{
+	    			//NodeList list = doc.getChildNodes();
+	    			
+	    		}
+	    		
 	    		// Get the root element
 	    		Node question = doc.getFirstChild();
 
 	    		// Get the staff element by tag name directly
 	    		Node answers = doc.getElementsByTagName("answers").item(0);
 	    		
-	    		NodeList list = answers.getChildNodes();
+	    		//NodeList list = answers.getChildNodes();
 	    		
 	    		for (int i = 0; i < list.getLength(); i++) {
 	    			
@@ -54,13 +72,11 @@ public class UpdateXML
 	    		transformer.transform(source, result);
 
 	    		System.out.println("Done");
-	    		
 	        } 
-	        catch(Exception exp)
-	        //catch (ParserConfigurationException | SAXException | IOException | XPathExpressionException | DOMException | TransformerFactoryConfigurationError | IllegalArgumentException | TransformerException exp) {
-	        // 
-	        {
-	        	exp.printStackTrace();
+	        catch(Exception exp){
+	        	exp.getMessage();
 	        }
 	}
+	
+	
 }

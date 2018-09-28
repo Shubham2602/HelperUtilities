@@ -7,11 +7,18 @@ import java.util.StringTokenizer;
 
 public class DateChanger 
 {
+	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	Date date = new Date();
+	
 	public String datechange()
 	{
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Date date = new Date();
 		StringTokenizer st = new StringTokenizer(dateFormat.format(date)," ");
 		return st.nextToken();
+	}
+	
+	public static void main(String args[])
+	{
+		DateChanger dateChanger = new DateChanger();
+		System.out.println(dateChanger.datechange());
 	}
 }
