@@ -1,8 +1,14 @@
 package FileIO;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 public class FileIOHelp 
 {
@@ -19,12 +25,12 @@ public class FileIOHelp
 					System.out.println("Copying file : " + file.getName());
 					for(String fileToBeCopied : filesToBeCopied)
 					{
-						if(file.isFile() && file.getName().equalsIgnoreCase(fileToBeCopied))
+						if(file.isFile() && file.getAbsolutePath().contains(fileToBeCopied))
 						{
 							System.out.println("File confirmed for copy");
 							if(destination.isDirectory())
 							{
-								String command = "xcopy "+source.getPath()+" "+destination.getPath(); 
+								String command = "xcopy "+file.getAbsolutePath()+" "+destination.getPath(); 
 								Process process = Runtime.getRuntime().exec(command);
 								System.out.println("File " + file.getName() + " was copied");
 							}
@@ -36,4 +42,22 @@ public class FileIOHelp
 				}
 			}
 	}
+	
+	public Map<String,String> propertyFileReader(File propertyFile) throws FileNotFoundException, IOException
+	{
+		Map<String,String> properties = new HashMap<String,String>();
+		
+		Properties prop = new Properties();
+		prop.load(new FileInputStream(propertyFile));
+		
+		Iterator itr = prop.keySet().iterator();
+		while(itr.hasNext())	
+		{
+			String key = itr.next().toString();
+			properties.put(key,prop.getProperty(key));
+		}
+		return properties;
+	}
+	
+	
 }

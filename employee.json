@@ -1,0 +1,22 @@
+{
+	"employee": {
+		"id": "11574302",
+		"designation": "SSE",
+		"skills": {
+			"items": [
+				{
+					"skill": "Core Java",
+					"level": "7"
+				},
+				{
+					"skill": "Selenium",
+					"level": "7"
+				},
+				{
+					"skill": "Webservices",
+					"level": "6"
+				}
+			]
+		}
+	}
+}

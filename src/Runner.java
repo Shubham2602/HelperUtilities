@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import AnytoPOJO.UpdateXML;
 import AnytoPOJO.XmltoString;
@@ -13,7 +14,7 @@ public class Runner
 {
 	public static void main(String args[]) throws IOException
 	{
-		UpdateXML updateXML = new UpdateXML();
+	/*	UpdateXML updateXML = new UpdateXML();
 		List<String> list = new ArrayList<String>();
 		
 		list.add("answers");
@@ -26,18 +27,24 @@ public class Runner
 		
 		System.out.println(randomValueGenerator.generate(6));
 		
-	
+	*/
 	
 		List<String> listOfFilesToBeCopied = new ArrayList<String>();
 		listOfFilesToBeCopied.add("Word1.docx");
 		listOfFilesToBeCopied.add("Notepad1.txt");
 		
 		File source = new File("F:\\Champions\\source");
-		File destination = new File("F:\\IEDriverServer.exe");
+		File destination = new File("F:\\FFOutput");
 		
 		FileIOHelp fileIOHelp = new FileIOHelp();
 		
 		fileIOHelp.fileToDirectoryCopier(source, destination, listOfFilesToBeCopied);
 		
+		/*FileIOHelp fileIOHelp = new FileIOHelp();
+		File configFile = new File("Config.properties");
+		
+		Map<String,String> map = fileIOHelp.propertyFileReader(configFile);
+		
+		System.out.println(map.get("id"));*/
 	}
 }

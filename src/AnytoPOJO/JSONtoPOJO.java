@@ -1,16 +1,22 @@
 package AnytoPOJO;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
 public class JSONtoPOJO 
 {
 
-	public void jsonString(Student student)
+	public void jsonString(Employee employee) throws Exception
 	{
-		/*String content;
-		String valueType;
 		ObjectMapper mapper = new ObjectMapper();
-		student = mapper.readValue(content, valueType);
-		mapper.writerWithDefaultPrettyPrinter().writeValueAsString(student);
-*/	}
+		
+		employee = mapper.readValue(new File("employee.json"),
+				Employee.class);
+		
+		
+	}
 }
