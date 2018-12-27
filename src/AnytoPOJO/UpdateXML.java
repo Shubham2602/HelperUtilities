@@ -32,7 +32,7 @@ public class UpdateXML
 
 	    		NodeList list = doc.getChildNodes();
 	    		List<Node> nodelist = (List<Node>) list;
-	    		
+	    		System.out.println(list.getLength());
 	    		for(Node n : nodelist)
 	    		{
 	    			System.out.println(n.getNodeName());

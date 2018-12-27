@@ -1,5 +1,6 @@
 package AnytoPOJO;
 
-public class Employee {
-
+public class Employee 
+{
+	
 }

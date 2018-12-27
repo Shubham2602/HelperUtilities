@@ -1,18 +1,21 @@
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import AnytoPOJO.UpdateXML;
 import AnytoPOJO.XmltoString;
+import DateTimeRelated.DateAsYouLike;
 import DateTimeRelated.DateChanger;
 import FileIO.FileIOHelp;
+import Resources.DBCOnn;
 import Resources.RandomValueGenerator;
 
 public class Runner 
 {
-	public static void main(String args[]) throws IOException
+	public static void main(String args[]) throws IOException, SQLException
 	{
 	/*	UpdateXML updateXML = new UpdateXML();
 		List<String> list = new ArrayList<String>();
@@ -46,5 +49,30 @@ public class Runner
 		Map<String,String> map = fileIOHelp.propertyFileReader(configFile);
 		
 		System.out.println(map.get("id"));*/
+		
+		/*DateAsYouLike dt = new DateAsYouLike();
+	
+		String statement = "payt20181007786543";
+		
+		Map<String,String> map = dt.statementFragmenter(statement);
+		
+		System.out.println(map.get("yymmdd"));
+		System.out.println(map.get("mmdd"));
+*/	
+		StringBuffer sb = new StringBuffer();
+		
+		DBCOnn db = new DBCOnn();
+		String ls = db.connect("select st from statement");
+		/*
+		for(String s : ls)
+		{
+			String statement = s;
+			DateAsYouLike dt = new DateAsYouLike();
+			Map<String,String> map = dt.statementFragmenter(statement);
+			
+			sb.append("//$"+map.get("yymmdd")+":"+map.get("mmdd"));
+		}
+		*/
+		
 	}
 }

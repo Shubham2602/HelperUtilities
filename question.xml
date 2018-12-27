@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><question id="1">  
     <answers>  
         <answername>java is a programming language</answername>  
-        <id>101</id>  
+        <id>
+        	//Set value from DB here
+        	<name>//Set value from DB here</name>
+        	//Set value from DB here
+        	<company>//Set value from DB here</company>
+        	//Set value from DB here
+        	<careerLevel>//Set value from DB here</careerLevel>
+        	//Set value from DB here
+        	<designation>//Set value from DB here</designation>
+        	//Set value from DB here
+        </id>  
         <postedby>ravi</postedby>
         <date>2018/08/24</date>
     </answers>  
